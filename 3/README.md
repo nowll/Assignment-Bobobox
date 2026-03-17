@@ -88,13 +88,13 @@ After completion, you’ll receive the **public IP** of your server.
 - Open in browser:
 
 ```
-http://<YOUR_PUBLIC_IP>
+http://<PUBLIC_IP>
 ```
 
 Expected output:
 
 ```html
-<h1>Hello, Open Tofu on AWS (Ubuntu)!</h1>
+<h1>Hello, Open Tofu</h1>
 ```
 
 ---
@@ -102,7 +102,7 @@ Expected output:
 ### SSH Access
 
 ```bash
-ssh ubuntu@<YOUR_PUBLIC_IP>
+ssh sam@<PUBLIC_IP>
 ```
 
 ---
