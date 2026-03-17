@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: docker-next-app:latest
     ports:
-      - "8080:3000"
+      - "8080:3000" # mapping local port 8080 to container's port 3000
     restart: unless-stopped
     environment:
       - NODE_ENV=production

@@ -11,10 +11,12 @@ provider "aws" {
   region = var.aws_region
 }
 
+# fetch default VPC
 data "aws_vpc" "default" {
   default = true
 }
 
+# fetch official Ubuntu 22.04 LTS Image
 data "aws_ami" "sam" {
   most_recent = true
   owners      = ["099720109477"]
@@ -30,11 +32,13 @@ data "aws_ami" "sam" {
   }
 }
 
+# Upload local RSA SSH Key to AWS
 resource "aws_key_pair" "deployer" {
   key_name   = "opentofu-assignment-key"
   public_key = file(var.ssh_public_key_path)
 }
 
+# Firewall rule
 resource "aws_security_group" "web_sg" {
   name        = "allow_web_ssh"
   description = "Allow inbound HTTP (port 80) and SSH (port 22)"
@@ -64,12 +68,14 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
+# Virtual Machine Instance (EC2)
 resource "aws_instance" "web_server" {
   ami                    = data.aws_ami.sam.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
+  # Startup script to install Nginx using Ubuntu's apt package manager
   user_data = <<-EOF
               #!/bin/bash
               apt-get update -y
