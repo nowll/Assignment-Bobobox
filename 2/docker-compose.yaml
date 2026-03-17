@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker-next-app:latest
+    ports:
+      - "8080:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
