@@ -75,7 +75,7 @@ resource "aws_instance" "web_server" {
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  # Startup script to install Nginx using Ubuntu's apt package manager
+  # Startup script to install Nginx using Ubuntu apt package manager
   user_data = <<-EOF
               #!/bin/bash
               apt-get update -y
