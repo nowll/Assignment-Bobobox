@@ -198,4 +198,3 @@ This project demonstrates:
 - Infrastructure as Code (IaC)
 - Secure cloud provisioning
 - Automated server setup
-- Production-grade DevOps practices
