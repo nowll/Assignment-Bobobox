@@ -198,3 +198,6 @@ This project demonstrates:
 - Infrastructure as Code (IaC)
 - Secure cloud provisioning
 - Automated server setup
+
+<img width="807" height="435" alt="image" src="https://github.com/user-attachments/assets/6c705f0a-9332-499c-9673-9b66d1ead73a" />
+
